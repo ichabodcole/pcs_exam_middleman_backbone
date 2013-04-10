@@ -16,6 +16,23 @@ h1 {
   margin-top: 50px;
 }
 
+
+#notes{
+  margin: 0 auto;
+  width: 300px;
+  list-style: none;
+  text-align: left;
+}
+
+#notes li:first-letter{
+  color: purple;
+  padding-right:5px;
+}
+
+#notes li{
+  padding: 5px 0;
+}
+
 .doc {
   font-size: 14px;
   margin: 0; }
