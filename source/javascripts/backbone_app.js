@@ -32,23 +32,32 @@ $(function(){
     },
 
     addAll: function(){
-
+      this.$el.html("");
     },
 
     addOne: function(model){
+      console.log("s");
       var note = new ListItem({model:model});
       this.$el.append(note.el);
-    },
-
-    render: function(){
-
     }
   });
 
+  $('#my-button').click(function(e){
+    $('#notes').slideUp(200, function(){
+      console.log("Collection Length: " + Notes.length);
+      Notes.reset();
+      console.log("Collection Length: " + Notes.length);
+      fetchAndShow();
+    });
+  });
 
-  // $('#my-button').onClick(function(e){
-
-  // });
+  function fetchAndShow(){
+    var timeout = setTimeout(function(){
+      Notes.fetch({success: function(){
+        $('#notes').slideDown(1000);
+      }});
+    }, 200);
+  }
 
   var Notes = new NoteList();
   var appView = new ListView();
